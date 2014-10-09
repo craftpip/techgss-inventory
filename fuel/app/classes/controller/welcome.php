@@ -1,30 +1,16 @@
 <?php
 
 
-//use \Model\Post;
 class Controller_Welcome extends Controller {
 
-    /**
-     * The basic welcome message
-     *
-     * @access  public
-     * @return  Response
-     */
     public static function _init() {
-        // this is called upon loading the class
+        
     }
 
     public function action_index() {
         echo 'Welcome to invest';
     }
 
-    /**
-     * A typical "Hello, Bob!" type example.  This uses a ViewModel to
-     * show how to use them.
-     *
-     * @access  public
-     * @return  Response
-     */
     public function action_hello() {
         echo 'Welcome to invest hello';
         $data = array(
