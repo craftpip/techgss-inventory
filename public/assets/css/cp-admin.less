@@ -1,0 +1,90 @@
+.modeloverlay {
+	top: 0;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: 9999;
+}
+.modeloverlay-overlay {
+	top: 0;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background: rgba(255, 255, 255, .7);
+}
+.ninja-hide {
+	opacity: 0;
+	transform: scale(.8);
+}
+.confirmModel {
+	.modeloverlay;
+	.confirmModel-overlay {
+		.modeloverlay-overlay;
+	}
+	.container {
+		.panel {
+			transition: all .2s;
+		}
+	}
+}
+.settingsModel {
+	.modeloverlay;
+	.settingsModel-overlay {
+		.modeloverlay-overlay;
+	}
+}
+.panel-user {
+	padding: 10px;
+	background-color: #eee;
+	li {
+		border: none !important;
+	}
+	.page-loading {
+		border-radius: 3px !important;
+		background-color: #fff !important;
+	}
+}
+.anim-3 {
+	transition: all .3s !important;
+}
+.anim-2 {
+	transition: all .2s !important;
+}
+.anim-4 {
+	transition: all .4s !important;
+}
+.anim-hide {
+	transform: scale(.8) !important;
+	opacity: 0 !important;
+}
+
+.page-loading {
+  transform: scale(1);
+  opacity: 1;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(0,0,0,.5);
+  border-radius: 3px;
+  padding: 10px 15px;
+  color:white;
+  transition: all .4s;
+}
+.page-loading.ninja-hide {
+  transform: scale(1);
+  right: -100px;
+}
+.font3x{
+	font-size: 3em !important;
+}
+.font2x{
+	font-size: 2em !important;
+}
+.font4x{
+	font-size: 4em !important;
+}
+.font5x{
+	font-size: 5em !important;
+}
