@@ -70,7 +70,7 @@ class Controller_Welcome extends Controller {
         //  echo '<br>'.$dt[2]['data'];
         $value = unserialize($dt[3]['data']);
         print_r($value);
-        echo $value[0]['name'];
+       // echo $value[0]['name']; gaurish
     }
 
 public static function action_demoadd(){
