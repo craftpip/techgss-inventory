@@ -73,4 +73,7 @@ class Controller_Welcome extends Controller {
         echo $value[0]['name'];
     }
 
+public static function action_demoadd(){
+
+}
 }
