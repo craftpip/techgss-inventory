@@ -1,18 +1,23 @@
 //Filename: router.js
 
 define([
-    'views/home'
-], function(homeView) {
+    'views/home',
+    'views/user'
+], function(home, user) {
     var app = {};
 
     app.Router = Backbone.Router.extend({
         routes: {
-            '': 'home'
+            '': 'home',
+            'users': 'user'
         },
         home: function() {
-            var homeView = new homeView();
-            console.log(homeView);
-            homeView.render();
+            var Home = new home();
+            Home.render();
+        },
+        user: function() {
+            var User = new user();
+            User.render();
         }
     });
 

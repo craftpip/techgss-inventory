@@ -17,7 +17,7 @@ $.fn.serializeObject = function () {
 };
 
 $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
-    // options.url = window.base + options.url;
+    options.url = window.base + options.url;
 });
 
 function isNumber(evt) {
@@ -40,7 +40,14 @@ function error() {
 var func = {};
 
 func.getView = function (which, callBack) {
+    console.info('get view function is used');
     $.get('api/getPage/' + which, function (d) {
+        d ? callBack(d) : error();
+    });
+};
+
+func.getData = function (url, callBack) {
+    $.get('' + url, function (d) {
         d ? callBack(d) : error();
     });
 };

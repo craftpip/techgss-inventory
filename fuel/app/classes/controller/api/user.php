@@ -22,9 +22,9 @@ class Controller_Api_User extends Controller {
         switch (Input::method()) {
             case 'GET':
                 if (isset($id)) {
-                    return json_encode(Model_Users::get_results($id));
+                    return json_encode(Model_Users::get_results_find($id));
                 } else {
-                    return json_encode(Model_Users::get_results_find());
+                    return json_encode(Model_Users::get_results());
                 }
                 break;
             case 'DELETE':

@@ -202,6 +202,9 @@
                 <li>
                     <a href="#/"><i class="fa fa-home fa-fw"></i> Home</a>
                 </li>
+                <li>
+                    <a href="#/users"><i class="fa fa-users fa-fw"></i> Manage Users</a>
+                </li>
 
             </ul>
         </div>
