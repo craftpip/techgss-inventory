@@ -46,16 +46,13 @@
         'libs/plugins/morris/morris.js',
         'libs/plugins/metisMenu/jquery.metisMenu.js',
         'libs/plugins/dataTables/jquery.dataTables.js',
-        // 'libs/plugins/dataTables/dataTables.keyTable.min.js',
-        // 'libs/plugins/dataTables/dataTables.fixedHeader.min.js',
         'libs/plugins/dataTables/dataTables.bootstrap.js',
         'libs/summernote.min.js',
         'libs/bootstrap-datepicker.js',
         'libs/summernote.min.js',
         'libs/bootstrap-select.min.js',
         'sb-admin.js',
-        'functions.js',
-        'admin-func.js',
+        'functions.js'
     ));
     ?>
 

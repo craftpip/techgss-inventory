@@ -1,24 +1,21 @@
+//Filename: router.js
+
 define([
-], function () {
-    var Router = Backbone.Router.extend({
+    'views/home'
+], function(homeView) {
+    var app = {};
+
+    app.Router = Backbone.Router.extend({
         routes: {
-            '': 'asd',
-            'asd': 'dsa'
+            '': 'home'
         },
-        asd: function (e) {
-            alert('asd')
-        },
-        dsa: function (e) {
-            
+        home: function() {
+            var homeView = new homeView();
+            console.log(homeView);
+            homeView.render();
         }
     });
 
-    var init = function () {
-        var router = new Router();
-        Backbone.history.start();
-    }
+    return app;
 
-    return {
-        init: init
-    };
 });
