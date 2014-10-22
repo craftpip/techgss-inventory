@@ -9,7 +9,23 @@ define([
         el: '#page-wrapper',
         events: {
             'click .user-btn-edit': 'editUser',
-            'click .user-btn-delete': 'deleteUser'
+            'click .user-btn-delete': 'deleteUser',
+            'submit #user-form-create-user': 'saveUser'
+        },
+        saveUser: function(e){
+            var $this = $(e.currentTarget);
+            func.submitForm('api/user/i', $this.serializeArray(), {
+                success: function(e){
+                    if(e){
+                        func.renderCurrent();
+                    }else{
+                        noty({
+                            text:'there was some problem updating user information, please try again with right information.'
+                        });
+                    }
+                }
+            });
+            return false;
         },
         editUser: function(e){
             var $this = $(e.currentTarget);
@@ -27,6 +43,7 @@ define([
                 if($form.find('input[type="hidden"]').length != 1){
                     $form.append('<input type="hidden" name="user_id">');
                 }
+                $form.find('button[type="submit"]').html('edit');
                 $form.find('input[type="hidden"]').val(d.user_id);
                 $form.find('input[name="signup-username"]').val(d.username);
                 $form.find('input[name="signup-password"]').val(d.password);
