@@ -12,13 +12,13 @@
                             <h3 class="text-center">Inventory</h3>
                         </div>
                         <div class="panel-body">
-                            <form role="form" action="<?php echo Uri::base(false) ?>login" method="POST">
+                            <form role="form" action="#" method="POST">
                                 <fieldset>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="E-mail id" name="email" type="email" autofocus>
+                                        <input class="form-control" placeholder="Username" name="username" type="email" autofocus>
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                        <input class="form-control" placeholder="Password" name="password" type="password" >
                                 </div>
                                 <div class="alert alert-danger alert-dismissable" style="<?php echo Input::get('error') ? 'display:block' : 'display:none' ?>">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
