@@ -16,8 +16,8 @@ define([
             Home.render();
         },
         user: function() {
-            window.User = window.User || new user();
-            User.render();
+            // window.User = window.User || new user();
+            user.render();
         }
     });
 
