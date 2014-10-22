@@ -12,11 +12,11 @@ define([
             'users': 'user'
         },
         home: function() {
-            var Home = new home();
+            window.Home = window.Home || new home();
             Home.render();
         },
         user: function() {
-            var User = new user();
+            window.User = window.User || new user();
             User.render();
         }
     });

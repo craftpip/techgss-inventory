@@ -1,0 +1,27 @@
+<table class="table table-bordered" id="data-table">
+    <thead>
+        <tr>
+            <td>User id</td>
+            <td>Details</td>
+            <td>Address</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <% $.each(data, function(i,a){ %>
+        <tr>
+            <td><%= a['user_id'] %></td>
+            <td>
+                Username: <%= a['username'] %><br>
+                Email: <%= a['email'] %><br>
+                Mobile no.: <%= a['mobileno'] %>
+            </td>
+            <td><%= a['address'] %></td>
+            <td>
+                <button data-user-id="<%= a['user_id'] %>" class="btn btn-default user-btn-edit" title="edit user"><i class="fa fa-edit"></i></button>
+                <button data-user-id="<%= a['user_id'] %>" class="btn btn-default user-btn-delete" title="delete user"><i class="fa fa-trash-o"></i></button>
+            </td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>

@@ -10,26 +10,13 @@ class Controller_Dashboard extends Controller {
 
     public function action_index() {
         if(!Auth::check()){
-            Fuel\Core\Response::redirect('dashboard/login');
+            Fuel\Core\Response::redirect('login');
         }
-            
+        
         $v = View::forge('template.mustache');
         $v->header = View::forge('header');
         $v->footer = View::forge('footer');
         $v->navigation = View::forge('navigation');
         return $v;
-    }
-    public function action_login(){
-//        return Fuel\Core\Input::method();
-        if(Fuel\Core\Input::method() == 'POST'){
-            $a = Fuel\Core\Input::post();
-            if(Auth::login($a['username'], $a['password'])){
-                Response::redirect('dashboard');
-            }else{
-                Response::redirect('dashboard/login?error=yes');
-            }
-        }else{
-            return View::forge('login');
-        }
     }
 }

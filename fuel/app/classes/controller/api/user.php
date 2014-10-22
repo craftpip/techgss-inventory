@@ -17,8 +17,12 @@ class Controller_Api_User extends Controller {
     public static function _init() {
         // this is called upon loading the class
     }
+    public function action_index(){
+        return false;
+    }
 
-    public function action_index($id = null) {
+    // changed to "i" because parameters passing doesnt work with index.
+    public function action_i($id = null) {
         switch (Input::method()) {
             case 'GET':
                 if (isset($id)) {

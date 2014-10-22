@@ -1,9 +1,9 @@
 //global helper functions
 
-$.fn.serializeObject = function () {
+$.fn.serializeObject = function() {
     var o = {};
     var a = this.serializeArray();
-    $.each(a, function () {
+    $.each(a, function() {
         if (o[this.name] !== undefined) {
             if (!o[this.name].push) {
                 o[this.name] = [o[this.name]];
@@ -16,7 +16,7 @@ $.fn.serializeObject = function () {
     return o;
 };
 
-$.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+$.ajaxPrefilter(function(options, originalOptions, jqXHR) {
     options.url = window.base + options.url;
 });
 
@@ -39,28 +39,43 @@ function error() {
 
 var func = {};
 
-func.getView = function (which, callBack) {
+func.getView = function(which, callBack) {
     console.info('get view function is used');
-    $.get('api/getPage/' + which, function (d) {
+    $.get('api/getPage/' + which, function(d) {
         d ? callBack(d) : error();
     });
 };
 
-func.getData = function (url, callBack) {
-    $.get('' + url, function (d) {
-        d ? callBack(d) : error();
+func.getData = function(obj) {
+    $.get('' + obj.url, function(d) {
+        d ? obj.success(d) : error();
     });
 };
+func.delete = function(obj) {
+    $.ajax({
+        url: obj.url+obj.data,
+        method: 'delete',
+        success: function(e) {
+            obj.success(e);
+        },
+        error: function(e){
+            noty({
+                text: 'error!',
+                type: 'error'
+            })
+        }
+    });
+}
 
-func.setPageHeight = function () {
+func.setPageHeight = function() {
     $('#page-wrapper').css('min-height', $(window).height() - 0 + 'px');
 };
 
-func.setTitle = function (that) {
+func.setTitle = function(that) {
     document.title = that.title + " | " + window.title;
 };
 
-func.buildOptions = function (d, value, name) {
+func.buildOptions = function(d, value, name) {
     var html = '';
     for (var i in d) {
         html += '<option value="' + d[i][value] + '">' + d[i][name] + '</option>';
@@ -68,12 +83,14 @@ func.buildOptions = function (d, value, name) {
     return html;
 };
 
-func.renderCurrent = function () {
-    app.router.navigate(location.hash, {trigger: true});
+func.renderCurrent = function() {
+    window.router.navigate(location.hash, {
+        trigger: true
+    });
 };
 
-func.get_SelectOptionValueFromString = function (arg) {
-    if (typeof (arg) == 'object') {
+func.get_SelectOptionValueFromString = function(arg) {
+    if (typeof(arg) == 'object') {
         var a = [];
         for (var i = 0; i < arg.length; i++) {
             for (var j = 0; j < $('option').length; j++) {
@@ -92,7 +109,7 @@ func.get_SelectOptionValueFromString = function (arg) {
     }
 };
 
-func.bindPlugins = function (arg) {
+func.bindPlugins = function(arg) {
     if ($('[data-toggle=tooltip]').length != 0) {
         $('[data-toggle=tooltip]').tooltip();
     }
@@ -117,18 +134,21 @@ func.bindPlugins = function (arg) {
     }
 };
 
-func.submitForm = function (url, data, action) {
-    $.ajax({url: url, type: "POST", data: data,
-                success: function (data, textStatus, jqXHR) {
+func.submitForm = function(url, data, action) {
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: data,
+                success: function(data, textStatus, jqXHR) {
             action.success(data, textStatus, jqXHR);        
         },
-                error: function (jqXHR, textStatus, errorThrown) {        
+                error: function(jqXHR, textStatus, errorThrown) {        
             action.error(jqXHR, textStatus, errorThrown);        
         }    
     });
 };
 
-func.cleanUnderscoreTemplate = function (tem) {
+func.cleanUnderscoreTemplate = function(tem) {
     while (tem.indexOf('&lt;') != '-1') {
         tem = tem.replace('&lt;', '<');
     }
@@ -138,7 +158,7 @@ func.cleanUnderscoreTemplate = function (tem) {
     return tem;
 };
 
-func.confirm = function (arg) {
+func.confirm = function(arg) {
     var html = '<div class="confirmModel" style="display:none"><div class="confirmModel-overlay"></div><div class="container"><div class="col-md-6 col-md-offset-3"><div style="height:200px"></div><div class="ninja-hide panel panel-primary"><div class="panel-heading"><span id="title">example.</span></div><div class="panel-body"><span id="content"><p>This is the body</p></span></div><div class="panel-footer"><div class="btn-group btn-group-justified"><a type="a" id="y" class="btn btn-primary btn-default"><i class="fa fa-check"></i> Okay</a><a type="a" id="n" class="btn btn-default">cancel</a></div></div></div></div></div></div>';
     if ($('.confirmModel').length != 0) {
         $('.confirmModel').remove();
@@ -148,25 +168,23 @@ func.confirm = function (arg) {
     $('.confirmModel #content').html(arg.content);
     window.confirm = arg;
 
-    $('.confirmModel #y').click(function (e) {
+    $('.confirmModel #y').click(function(e) {
         try {
             arg.success(arg.data || '');
-        } catch (e) {
-        }
+        } catch (e) {}
         $('.confirmModel a').unbind();
         $('.confirmModel').fadeOut('fast');
         window.confirm = undefined;
     });
-    $('.confirmModel #n').click(function (e) {
+    $('.confirmModel #n').click(function(e) {
         try {
             arg.error();
-        } catch (e) {
-        }
+        } catch (e) {}
         $('.confirmModel a').unbind();
         $('.confirmModel').fadeOut('fast');
         window.confirm = undefined;
     });
-    $('.confirmModel').show('fast', function () {
+    $('.confirmModel').show('fast', function() {
         $('.confirmModel .ninja-hide').removeClass('ninja-hide');
     });
 };
@@ -176,7 +194,7 @@ func.Settings = {
         theme: 'default',
         fontsize: 14
     },
-    init: function () {
+    init: function() {
         if (localStorage.getItem('nb-settings') == undefined || localStorage.getItem('nb-settings') == null) {
             localStorage.setItem('nb-settings', JSON.stringify(this.defaults));
             console.log('saved defaults');
@@ -185,7 +203,7 @@ func.Settings = {
             this.apply();
         }
     },
-    show: function () {
+    show: function() {
         var a = JSON.parse(localStorage.getItem('nb-settings'));
         for (var i in a) {
             $('#page-settings [name="' + i + '"]').val(a[i]);
@@ -193,10 +211,10 @@ func.Settings = {
         func.bindPlugins('refresh');
         $('.settingsModel').fadeIn(200);
     },
-    hide: function () {
+    hide: function() {
         $('.settingsModel').hide();
     },
-    save: function (ar) {
+    save: function(ar) {
         var s = JSON.stringify($('#page-settings').serializeObject());
         localStorage.setItem('nb-settings', s);
         this.hide();
@@ -208,7 +226,7 @@ func.Settings = {
             });
         }
     },
-    apply: function () {
+    apply: function() {
         var a = JSON.parse(localStorage.getItem('nb-settings'));
         if (!(a.theme == 'bootstrap.min')) {
             $('head').append('<link type="text/css" rel="stylesheet" href="../assets/css/administrator/' + a.theme + '.css">');
@@ -217,7 +235,7 @@ func.Settings = {
     }
 };
 
-func.filterObject = function (e, value, key) {
+func.filterObject = function(e, value, key) {
     var c = [];
     var key;
     for (var i in e) {
@@ -228,7 +246,7 @@ func.filterObject = function (e, value, key) {
     return func.toObject(c);
 };
 
-func.toObject = function (arr) {
+func.toObject = function(arr) {
     var rv = {};
     for (var i = 0; i < arr.length; ++i)
         if (arr[i] !== undefined)
@@ -236,36 +254,35 @@ func.toObject = function (arr) {
     return rv;
 };
 
-func.saveZones = function () {
+func.saveZones = function() {
     if (func.storage.get('zonedata') == undefined) {
-        $.get('api/getCircleZone', function (e) {
+        $.get('api/getCircleZone', function(e) {
             func.storage.set('zonedata', e);
         });
     }
 };
 
 func.storage = {
-    set: function (arg, v) {
+    set: function(arg, v) {
         if (v == 'object') {
             var v = JSON.stringify(v);
             console.log(v);
         }
         localStorage.setItem(arg, v);
     },
-    get: function (arg) {
+    get: function(arg) {
         var a = localStorage.getItem(arg);
         try {
             if (a.charAt(0) == '{' || a.charAt(0) == '[') {
                 a = JSON.parse(a);
             }
-        } catch (e) {
-        }
+        } catch (e) {}
         if (a == undefined || a == null) {
             a == undefined;
         }
         return a;
     },
-    clear: function () {
+    clear: function() {
         localStorage.removeItem('zonedata');
         localStorage.removeItem('nb-settings');
         noty({
@@ -274,7 +291,7 @@ func.storage = {
     }
 };
 
-func.trimHyphens = function (arg) {
+func.trimHyphens = function(arg) {
     if (arg.charAt(arg.length - 1) == '-') {
         arg = arg.substring(0, arg.length - 1);
     }
@@ -283,23 +300,23 @@ func.trimHyphens = function (arg) {
 
 func.cellEdit = {
     html: {
-        select: function (val) {
+        select: function(val) {
             return '<select class="form-control cellEditSelectPicker cellEditBox" data-initval="' + val + '"></select>';
         },
-        input: function (val) {
+        input: function(val) {
             return '<input type="text" class="form-control cellEditBox" data-initval="' + val + '" value="' + val + '">';
         },
-        textarea: function (val) {
+        textarea: function(val) {
             return '<textarea class="form-control cellEditBox" data-initval="' + val + '" >' + val + '</textarea>';
         }
     },
-    init: function (e) {
+    init: function(e) {
         $this = $(e.currentTarget);
         if (!$this.hasClass('editActive')) {
             $this.prepend(this.html[$this.data('control')]($this.html()));
             var $control = $this.find($this.data('control'));
             if ($this.data('control') == 'select') {
-                $.get($this.data('from'), function (a) {
+                $.get($this.data('from'), function(a) {
                     a = JSON.parse(a);
                     console.log('name: ' + $this.data('select-name') + ', value: ' + $this.data('select-value'));
                     console.log('JSON data received:');
@@ -320,13 +337,13 @@ func.cellEdit = {
                 width: ($this.width() + 50) + 'px',
             });
             $control.addClass('anim-hide');
-            setTimeout(function () {
+            setTimeout(function() {
                 $control.addClass('anim-2');
                 $control.removeClass('anim-hide');
             }, 200);
         }
     },
-    close: function (e) {
+    close: function(e) {
         // return false;
         $this = $(e.currentTarget);
         $p = $this.parents('td.editActive');
@@ -340,7 +357,7 @@ func.cellEdit = {
                 var ob = {};
                 ob['id'] = $parent.data('id');
                 ob[$this.parents('td').data('name')] = $this.val();
-                $.post(url, ob, function (e) {
+                $.post(url, ob, function(e) {
                     try {
                         e = JSON.parse(e);
                     } catch (e) {
@@ -361,9 +378,9 @@ func.cellEdit = {
     }
 };
 
-func.cleanMenu = function () {
+func.cleanMenu = function() {
     var $li = $('#side-menu > li');
-    $.each($li, function (i) {
+    $.each($li, function(i) {
         if ($(this).find('ul.nav').length > 0) {
             if ($(this).find('ul.nav li').length == 0) {
                 $(this).remove();

@@ -191,7 +191,7 @@
                                     </li>
                                     <div class="divider"></div>
                                     <li>
-                                        <a href="<?php // echo Uri::base(false) ?>administrator/logout"><i class="fa fa-power-off fa-fw"></i> Logout</a>
+                                        <a href="<?php // echo Uri::base(false) ?>login/o"><i class="fa fa-power-off fa-fw"></i> Logout</a>
                                     </li>
                                 </ul>
                             </div>
