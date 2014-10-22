@@ -20,6 +20,12 @@
   -ms-transform: scale(0.8);
   transform: scale(0.8);
 }
+.loadingifempty:empty {
+  min-height: 200px;
+  background-image: url('loading.gif');
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .confirmModel {
   top: 0;
   position: fixed;
