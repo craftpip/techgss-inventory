@@ -205,68 +205,6 @@
                 <li>
                     <a href="#/users"><i class="fa fa-users fa-fw"></i> Manage Users</a>
                 </li>
-                <li>
-                    <a href="#/items"><i class="fa fa-circle-o fa-fw"></i> Items &amp; more<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="#">Company c/d/e</a>
-                        </li>
-                        <li>
-                            <a href="#">Category c/d/e</a>
-                        </li>
-                        <li>
-                            <a href="#">Group c/d/e</a>
-                        </li>
-                        <li>
-                            <a href="#">Vehical c/d/e</a>
-                        </li>
-                        <li>
-                            <a href="#">Bom c/d/e</a>
-                        </li>
-                        <li>
-                            <a href="#">Item c/d/e</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#/sales"><i class="fa fa-circle-o fa-fw"></i> Sales<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="#">Sales inquiry</a>
-                        </li>
-                        <li>
-                            <a href="#">Sales Order</a>
-                        </li>
-                        <li>
-                            <a href="#">Packing Invoice</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#/inventory"><i class="fa fa-circle-o fa-fw"></i> Inventory<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="#">View inventory by item</a>
-                        </li>
-                        <li>
-                            <a href="#">Update Inventory</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#/reports"><i class="fa fa-circle-o fa-fw"></i> Reports<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="#">Sales report</a>
-                        </li>
-                        <li>
-                            <a href="#">Purchase report</a>
-                        </li>
-                        <li>
-                            <a href="#">Inventory report</a>
-                        </li>
-                    </ul>
-                </li>
 
             </ul>
         </div>
