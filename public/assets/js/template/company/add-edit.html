@@ -1,0 +1,28 @@
+<% data = data[0]; %>
+
+<%= data ? '<a href="#/company" class="btn btn-default"><i class="fa fa-arrow-left fa-fw"></i> back</a><br><br>' : '' %>
+<div class="panel panel-<%= data? 'danger' : 'primary'  %>">
+<div class="panel-heading">
+    <span class="">
+        <% if(data){ %>
+        Edit company: <%= data['company_name'] %>
+        <% }else{ %>
+        Add new company
+        <% } %>
+    </span>
+</div>
+<div class="panel-body">
+    <form class="form" id="company-create-new-company">
+        <div class="form-group">
+            <label>Comapany name</label>
+            <input class="form-control" name="company_name" placeholder="Username" value="<%= data ? data['company_name'] : '' %>">
+        </div>
+        <% if(data){ %>
+            <input type="hidden" name="company_id" value="<%= data['company_id'] %>">
+        <% } %>
+
+        <button class="btn btn-primary" type="submit"><%= data ? 'Edit': 'Create' %></button>
+
+    </form>
+</div>
+</div>

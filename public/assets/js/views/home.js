@@ -11,6 +11,7 @@ define([
 		}
 	});
 
-	return home;
+	window.home = window.home || new home();
+	return window.home;
 
 });

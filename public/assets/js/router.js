@@ -2,22 +2,26 @@
 
 define([
     'views/home',
-    'views/user'
-], function(home, user) {
+    'views/user',
+    'views/company'
+], function(home, user, company) {
     var app = {};
 
     app.Router = Backbone.Router.extend({
         routes: {
             '': 'home',
-            'users': 'user'
+            'users': 'user',
+            'company': 'company',
+            'company/edit/:id': 'company'
         },
         home: function() {
-            window.Home = window.Home || new home();
-            Home.render();
+            home.render();
         },
         user: function() {
-            // window.User = window.User || new user();
             user.render();
+        },
+        company: function(id){
+            company.render(id);
         }
     });
 

@@ -62,10 +62,10 @@ func.delete = function(obj) {
             noty({
                 text: 'error!',
                 type: 'error'
-            })
+            });
         }
     });
-}
+};
 
 func.setPageHeight = function() {
     $('#page-wrapper').css('min-height', $(window).height() - 0 + 'px');
