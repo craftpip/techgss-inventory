@@ -45,7 +45,7 @@ class Controller_Api_Company extends Controller {
                     
                 } else {
                     
-                    $create_id = Auth::get_user_id();
+                    list(,$create_id) = Auth::get_user_id();
                     return json_encode(Model_Company::set_company(array(
                                 'company_name' => $data['company_name'], 
                                 'create_id' => $create_id
