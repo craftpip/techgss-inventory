@@ -15,15 +15,15 @@
                             <form role="form" action="#" method="POST">
                                 <fieldset>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Username" name="username" type="email" autofocus>
+                                        <input class="form-control" placeholder="Username" name="username" type="email" autofocus value="megaurishrane@gmail.com2">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Password" name="password" type="password" >
-                                </div>
-                                <div class="alert alert-danger alert-dismissable" style="<?php echo Input::get('error') ? 'display:block' : 'display:none' ?>">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                    The email or password is incorrect.
-                                </div>
+                                        <input class="form-control" placeholder="" name="password" type="password" value="123456">
+                                    </div>
+                                    <div class="alert alert-danger alert-dismissable" style="<?php echo Input::get('error') ? 'display:block' : 'display:none' ?>">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        The email or password is incorrect.
+                                    </div>
                                     <!-- Change this to a button or input when using this as a form -->
                                     <button type="submit" class="btn btn-lg btn-default btn-block"><i class="fa fa-sign-in"></i> Login</button>
                                 </fieldset>

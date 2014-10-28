@@ -8,8 +8,8 @@ class Model_Company extends \Model {
     }
 
     public static function get_company_by_id($id) {
-        return \DB::select('company_name', 'create_id', 'status', 'cdate')
-                        ->from('company')->execute()->where('company_id', $id)->as_array();
+        return \DB::select('company_id','company_name', 'create_id', 'status', 'cdate')
+                        ->from('company')->where('company_id','=', $id)->execute()->as_array();
     }
 
     public static function set_company($result_data = array()) {
@@ -24,7 +24,7 @@ class Model_Company extends \Model {
     public static function update_company($result_data = array()) {
         $result = \DB::update('company')
                 ->value('company_name', $result_data['company_name'])
-                ->where('company_id', $result_data['company_id'])
+                ->where('company_id','=', $result_data['company_id'])
                 ->execute();
         return $result;
     }
@@ -32,7 +32,7 @@ class Model_Company extends \Model {
     public static function delete_company($id) {
         $result = \DB::update('company')
                 ->value('status', 'Delete')
-                ->where('company_id', $result_data['company_id'])
+                ->where('company_id','=', $id)
                 ->execute();
         return $result;
     }

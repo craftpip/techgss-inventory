@@ -1,0 +1,28 @@
+<table class="table table-bordered" id="data-table">
+    <thead>
+        <tr>
+            <td>User id</td>
+            <td>Name</td>
+            <td>Created on</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <% $.each(companies, function(i,a){ %>
+        <tr>
+            <td><%= a['company_id'] %></td>
+            <td>
+                <strong><%= a['company_name'] %></strong><br>
+                Status: <%= a['status'] %>
+            </td>
+            <td><%= a['cdate'] %></td>
+            <td>
+                <% if(a['status'] == 'Active'){ %>
+                <a href="#/company/edit/<%= a['company_id'] %>" class="btn btn-default" title="edit user"><i class="fa fa-edit"></i></a>
+                <button data-company-id="<%= a['company_id'] %>" class="btn btn-default company-btn-delete" title="delete user"><i class="fa fa-trash-o"></i></button>
+                <% } %>
+            </td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>

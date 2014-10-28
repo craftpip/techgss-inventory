@@ -16,8 +16,10 @@ class Controller_Api_Company extends Controller {
     public static function _init() {
         // this is called upon loading the class
     }
-
-    public function action_index($id = null) {
+    public function action_index(){
+        return false;
+    }
+    public function action_i($id = null) {
         switch (Input::method()) {
             case 'GET':
                 if (isset($id)) {
@@ -35,14 +37,18 @@ class Controller_Api_Company extends Controller {
                 $data = Input::post();
                 
                 if (isset($data['company_id'])) {
+                    
                     return json_encode(Model_Company::update_company(array(
                                 'company_name' => $data['company_name'],
                                 'company_id' => $data['company_id']
                     )));
+                    
                 } else {
+                    
+                    list(,$create_id) = Auth::get_user_id();
                     return json_encode(Model_Company::set_company(array(
                                 'company_name' => $data['company_name'], 
-                                'create_id' => $data['create_id']
+                                'create_id' => $create_id
                     )));
                     break;
                 }

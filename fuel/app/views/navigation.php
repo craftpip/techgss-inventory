@@ -206,10 +206,10 @@
                     <a href="#/users"><i class="fa fa-users fa-fw"></i> Manage Users</a>
                 </li>
                 <li>
-                    <a href="#/items"><i class="fa fa-circle-o fa-fw"></i> Items &amp; more<span class="fa arrow"></span></a>
+                    <a href="#" class="pd"><i class="fa fa-circle-o fa-fw"></i> Items &amp; more<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#">Company c/d/e</a>
+                            <a href="#/company">Company</a>
                         </li>
                         <li>
                             <a href="#">Category c/d/e</a>
