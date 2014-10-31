@@ -12,10 +12,9 @@ define([
       'submit #vehical-create-new-vehical': 'submit'
     },
   	render: function(){
-      console.log('vehicale');
-  		// this.$el.html(main);
-  		// this.rendervehicallist();
-  		// this.rendervehicalAddEdit();
+  		this.$el.html(main);
+  		this.rendervehicallist();
+  		this.rendervehicalAddEdit();
   	},
     delete: function(e){
       var $this = $(e.currentTarget);
@@ -80,6 +79,6 @@ define([
   		$('#company-add-edit').html(cmdata);
   	}
   });
-  window.category = window.category || new view();
-  return window.category;
+  window.vehical = window.vehical || new view();
+  return window.vehical;
 });

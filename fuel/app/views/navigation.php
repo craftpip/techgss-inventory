@@ -212,13 +212,13 @@
                             <a href="#/company">Company</a>
                         </li>
                         <li>
-                            <a href="#">Category c/d/e</a>
+                            <a href="#/category">Category c/d/e</a>
                         </li>
                         <li>
-                            <a href="#">Group c/d/e</a>
+                            <a href="#/group">Group c/d/e</a>
                         </li>
                         <li>
-                            <a href="#">Vehical c/d/e</a>
+                            <a href="#/vehical">Vehical c/d/e</a>
                         </li>
                         <li>
                             <a href="#">Bom c/d/e</a>

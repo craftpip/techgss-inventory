@@ -56,6 +56,7 @@ define([
             return false;
   	},
   	render: function(edit){
+      console.log('category is coming');
   		this.$el.html(main);
   		this.rendercategorylist();
   		this.rendercategoryAddEdit(edit);
