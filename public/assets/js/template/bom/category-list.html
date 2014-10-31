@@ -1,0 +1,26 @@
+<table class="table table-bordered" id="data-table">
+    <thead>
+        <tr>
+            <td>User id</td>
+            <td>Name</td>
+            <td>Created on</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <% $.each(companies, function(i,a){ %>
+        <tr>
+            <td><%= a['category_id'] %></td>
+            <td>
+                <strong><%= a['category_name'] %></strong><br>
+                Description: <%= a['category_desc'] %>
+            </td>
+            <td><%= a['cdate'] %></td>
+            <td>
+                <a href="#/company/edit/<%= a['category_id'] %>" class="btn btn-default" title="edit user"><i class="fa fa-edit"></i></a>
+                <button data-category-id="<%= a['category_id'] %>" class="btn btn-default category-btn-delete" title="delete user"><i class="fa fa-trash-o"></i></button>
+            </td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>

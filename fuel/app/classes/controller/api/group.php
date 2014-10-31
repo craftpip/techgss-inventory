@@ -19,6 +19,10 @@ class Controller_Api_Group extends Controller {
     }
 
     public function action_index($id = null) {
+        return 'this is index';
+    }
+
+    public function action_i($id = null) {
         switch (Input::method()) {
             case 'GET':
                 if (isset($id)) {
@@ -35,18 +39,22 @@ class Controller_Api_Group extends Controller {
 
                 if (isset($data['group_id'])) {
                     return json_encode(Model_Group::update_group(array(
-                               'group_name' => $data['group_name'],
+                                'group_name' => $data['group_name'],
                                 'group_desc' => $data['group_desc'],
-                                'company_id' => $data['company_id'],
-                                'create_by_id' => $data['create_by_id'],
+                                'company_id' => '1',
+                                'create_by_id' => '2',
+//                                'company_id' => $data['company_id'],
+//                                'create_by_id' => $data['create_by_id'],
                                 'group_id' => $data['group_id']
                     )));
                 } else {
                     return json_encode(Model_Group::set_group(array(
                                 'group_name' => $data['group_name'],
                                 'group_desc' => $data['group_desc'],
-                                'company_id' => $data['company_id'],
-                                'create_by_id' => $data['create_by_id']
+                                'company_id' => '1',
+                                'create_by_id' => '2',
+//                                'company_id' => $data['company_id'],
+//                                'create_by_id' => $data['create_by_id'],
                     )));
                     break;
                 }

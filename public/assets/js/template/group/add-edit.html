@@ -1,0 +1,32 @@
+<% data = data[0]; %>
+
+<%= data ? '<a href="#/group" class="btn btn-default"><i class="fa fa-arrow-left fa-fw"></i> back</a><br><br>' : '' %>
+<div class="panel panel-<%= data? 'danger' : 'primary'  %>">
+<div class="panel-heading">
+    <span class="">
+        <% if(data){ %>
+        Edit Group: <%= data['group_name'] %>
+        <% }else{ %>
+        Add new Group
+        <% } %>
+    </span>
+</div>
+<div class="panel-body">
+    <form class="form" id="group-create-new-group">
+        <div class="form-group">
+            <label>Group name</label>
+            <input class="form-control" name="group_name" placeholder="Username" value="<%= data ? data['group_name'] : '' %>">
+        </div>
+        <div class="form-group">
+            <label>Group Desc</label>
+            <textarea class="form-control" name="group_desc" placeholder="desc"><%= data ? data['group_name'] : '' %></textarea>
+        </div>
+        <% if(data){ %>
+            <input type="hidden" name="group_id" value="<%= data['group_id'] %>">
+        <% } %>
+
+        <button class="btn btn-primary" type="submit"><%= data ? 'Edit': 'Create' %></button>
+
+    </form>
+</div>
+</div>

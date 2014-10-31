@@ -4,17 +4,19 @@ class Model_Category extends \Model {
 
     public static function get_category() {
         return \DB::select('category_id', 'category_name', 'category_desc', 'company_id', 'cdate')
-                        ->from('category')->execute()->as_array();
+                        ->from('category')
+                        ->where('status', 'Active')
+                        ->execute()->as_array();
     }
 
     public static function get_category_by_company($id) {
         return \DB::select('category_id','category_name', 'category_desc', 'cdate')
-                        ->from('category')->where('company_id', $id)->execute()->as_array();
+                        ->from('category')->where('status', 'Active')->where('company_id', $id)->execute()->as_array();
     }
     
     public static function get_category_by_id($id) {
         return \DB::select('category_name', 'category_desc', 'company_id', 'cdate')
-                        ->from('category')->where('category_id', $id)->execute()->as_array();
+                        ->from('category')->where('status', 'Active')->where('category_id', $id)->execute()->as_array();
     }
 
     public static function set_category($result_data = array()) {
@@ -40,7 +42,7 @@ class Model_Category extends \Model {
     public static function delete_category($id) {
         $result = \DB::update('category')
                 ->value('status', 'Delete')
-                ->where('category_id', $result_data['category_id'])
+                ->where('category_id', $id)
                 ->execute();
         return $result;
     }

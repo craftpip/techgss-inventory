@@ -1,0 +1,32 @@
+<% data = data[0]; %>
+
+<%= data ? '<a href="#/category" class="btn btn-default"><i class="fa fa-arrow-left fa-fw"></i> back</a><br><br>' : '' %>
+<div class="panel panel-<%= data? 'danger' : 'primary'  %>">
+<div class="panel-heading">
+    <span class="">
+        <% if(data){ %>
+        Edit Category: <%= data['category_name'] %>
+        <% }else{ %>
+        Add new Category
+        <% } %>
+    </span>
+</div>
+<div class="panel-body">
+    <form class="form" id="category-create-new-category">
+        <div class="form-group">
+            <label>Category name</label>
+            <input class="form-control" name="category_name" placeholder="Username" value="<%= data ? data['category_name'] : '' %>">
+        </div>
+        <div class="form-group">
+            <label>Category Desc</label>
+            <textarea class="form-control" name="category_desc" placeholder="desc"><%= data ? data['category_name'] : '' %></textarea>
+        </div>
+        <% if(data){ %>
+            <input type="hidden" name="category_id" value="<%= data['category_id'] %>">
+        <% } %>
+
+        <button class="btn btn-primary" type="submit"><%= data ? 'Edit': 'Create' %></button>
+
+    </form>
+</div>
+</div>

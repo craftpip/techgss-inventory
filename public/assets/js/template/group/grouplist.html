@@ -1,0 +1,26 @@
+<table class="table table-bordered" id="data-table">
+    <thead>
+        <tr>
+            <td>User id</td>
+            <td>Group Name</td>
+            <td>Created on</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <% $.each(group, function(i,a){ %>
+        <tr>
+            <td><%= a['group_id'] %></td>
+            <td>
+                <strong><%= a['group_name'] %></strong><br>
+                Description: <%= a['group_desc'] %>
+            </td>
+            <td><%= a['cdate'] %></td>
+            <td>
+                <a href="#/group/edit/<%= a['group_id'] %>" class="btn btn-default" title="edit user"><i class="fa fa-edit"></i></a>
+                <button data-group-id="<%= a['group_id'] %>" class="btn btn-default group-btn-delete" title="delete user"><i class="fa fa-trash-o"></i></button>
+            </td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>

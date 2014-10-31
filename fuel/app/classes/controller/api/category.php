@@ -19,6 +19,10 @@ class Controller_Api_Category extends Controller {
     }
 
     public function action_index($id = null) {
+        return 'this is index';
+    }
+
+    public function action_i($id = null){
         switch (Input::method()) {
             case 'GET':
                 if (isset($id)) {
@@ -38,19 +42,18 @@ class Controller_Api_Category extends Controller {
                                 'category_name' => $data['category_name'],
                                 'category_desc' => $data['category_desc'],
                                 'company_id' => $data['company_id'],
-                                'category_id' => $data['category_id'],
+                                'category_id' => 1
                     )));
                 } else {
                     return json_encode(Model_Category::set_category(array(
                                 'category_name' => $data['category_desc'],
                                 'category_desc' => $data['category_desc'],
-                                'company_id' => $data['company_id']
+                                'company_id' => 1
                     )));
                     break;
                 }
         }
     }
-
     public function action_bycompany($id){
         return json_encode(Model_Category::get_category_by_company($id));
     }
