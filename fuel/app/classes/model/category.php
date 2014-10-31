@@ -15,7 +15,7 @@ class Model_Category extends \Model {
     }
     
     public static function get_category_by_id($id) {
-        return \DB::select('category_name', 'category_desc', 'company_id', 'cdate')
+        return \DB::select('category_name', 'category_desc', 'company_id', 'cdate','category_id')
                         ->from('category')->where('status', 'Active')->where('category_id', $id)->execute()->as_array();
     }
 

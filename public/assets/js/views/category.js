@@ -55,17 +55,17 @@ define([
 		});
             return false;
   	},
-  	render: function(){
+  	render: function(edit){
   		this.$el.html(main);
   		this.rendercategorylist();
-  		this.rendercategoryAddEdit();
+  		this.rendercategoryAddEdit(edit);
   	},
   	rendercategorylist: function(){
   		func.getData({
   			url: 'api/category/i',
   			success: function(data){
   				 var datavar = _.template(categorylist);
-  				 var cmdata =  datavar({companies: JSON.parse(data)});
+  				 var cmdata =  datavar({category: JSON.parse(data)});
   				 $('#category-listcategory').html(cmdata);
   			},
   			error: function(){
@@ -73,10 +73,22 @@ define([
   			}
   		});
   	},
-  	rendercategoryAddEdit: function(){
-  		 var datavar = _.template(categoryadd);
-  		 var cmdata =  datavar({data: {}});
-  		$('#company-add-edit').html(cmdata);
+  	rendercategoryAddEdit: function(edit){
+      if(edit){
+           func.getData({
+                    url: 'api/category/i/'+edit,
+                    success: function(data){
+                        console.log(data);
+                         var template = _.template(categoryadd);
+                           template = template({data: JSON.parse(data)});
+                         $('#category-add-edit').html(template);      
+                    }
+                });
+      }else{
+        		 var datavar = _.template(categoryadd);
+        		 var cmdata =  datavar({data: {}});
+        		$('#category-add-edit').html(cmdata);
+      }
   	}
   });
   window.category = window.category || new view();

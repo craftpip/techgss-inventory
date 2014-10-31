@@ -8,13 +8,14 @@ define([
   var view = Backbone.View.extend({
     el:'#page-wrapper',
     events: {
-      'click .category-btn-delete': 'delete',
-      'submit #category-create-new-category': 'submit'
+      'click .vehical-btn-delete': 'delete',
+      'submit #vehical-create-new-vehical': 'submit'
     },
   	render: function(){
-  		this.$el.html(main);
-  		this.rendervehicallist();
-  		this.rendervehicalAddEdit();
+      console.log('vehicale');
+  		// this.$el.html(main);
+  		// this.rendervehicallist();
+  		// this.rendervehicalAddEdit();
   	},
     delete: function(e){
       var $this = $(e.currentTarget);
@@ -62,11 +63,11 @@ define([
     },
   	rendervehicallist: function(){
   		func.getData({
-  			url: 'api/category/i',
+  			url: 'api/vehical/i',
   			success: function(data){
   				 var datavar = _.template(categorylist);
   				 var cmdata =  datavar({companies: JSON.parse(data)});
-  				 $('#category-listcategory').html(cmdata);
+  				 $('#vehical-listvehical').html(cmdata);
   			},
   			error: function(){
 

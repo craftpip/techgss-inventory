@@ -8,7 +8,7 @@
         </tr>
     </thead>
     <tbody>
-        <% $.each(companies, function(i,a){ %>
+        <% $.each(category, function(i,a){ %>
         <tr>
             <td><%= a['category_id'] %></td>
             <td>
@@ -17,7 +17,7 @@
             </td>
             <td><%= a['cdate'] %></td>
             <td>
-                <a href="#/company/edit/<%= a['category_id'] %>" class="btn btn-default" title="edit user"><i class="fa fa-edit"></i></a>
+                <a href="#/category/edit/<%= a['category_id'] %>" class="btn btn-default" title="edit user"><i class="fa fa-edit"></i></a>
                 <button data-category-id="<%= a['category_id'] %>" class="btn btn-default category-btn-delete" title="delete user"><i class="fa fa-trash-o"></i></button>
             </td>
         </tr>

@@ -41,8 +41,9 @@ class Controller_Api_Category extends Controller {
                     return json_encode(Model_Category::update_category(array(
                                 'category_name' => $data['category_name'],
                                 'category_desc' => $data['category_desc'],
-                                'company_id' => $data['company_id'],
-                                'category_id' => 1
+                                //'company_id' => $data['company_id'],
+                                'company_id' => '1',
+                                'category_id' => $data['category_id']
                     )));
                 } else {
                     return json_encode(Model_Category::set_category(array(

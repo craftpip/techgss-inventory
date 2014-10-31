@@ -11,10 +11,10 @@ define([
             'click .group-btn-delete': 'delete',
             'submit #group-create-new-group': 'submit'
         },
-        render: function() {
+        render: function(edit) {
             this.$el.html(main);
             this.rendergrouplist();
-            this.rendergroupAddEdit();
+            this.rendergroupAddEdit(edit);
         },
         submit: function(e) {
             $this = $(e.currentTarget);
@@ -74,10 +74,23 @@ define([
                 }
             });
         },
-        rendergroupAddEdit: function() {
+        rendergroupAddEdit: function(edit) {
+            if(edit){
+                 func.getData({
+                    url: 'api/group/i/'+edit,
+                    success: function(data){
+                        console.log(data);
+                         var template = _.template(addedit);
+                           template = template({data: JSON.parse(data)});
+                         $('#group-add-edit').html(template);      
+                    }
+                });
+            }else{
+
             var datavar = _.template(addedit);
             var cmdata = datavar({data: {}});
             $('#group-add-edit').html(cmdata);
+            }
         }
 
     });

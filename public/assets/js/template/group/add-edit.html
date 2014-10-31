@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
             <label>Group Desc</label>
-            <textarea class="form-control" name="group_desc" placeholder="desc"><%= data ? data['group_name'] : '' %></textarea>
+            <textarea class="form-control" name="group_desc" placeholder="desc"><%= data ? data['group_desc'] : '' %></textarea>
         </div>
         <% if(data){ %>
             <input type="hidden" name="group_id" value="<%= data['group_id'] %>">

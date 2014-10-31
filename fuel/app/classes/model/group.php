@@ -13,7 +13,7 @@ class Model_Group extends \Model {
     }
     
     public static function get_group_by_id($id) {
-       return \DB::select('group_name', 'group_desc', 'company_id', 'create_by_id','cdate')
+       return \DB::select('group_id','group_name', 'group_desc', 'company_id', 'create_by_id','cdate')
                         ->from('group')->where('status', 'Active')->where('group_id', $id)->execute()->as_array();
     }
 
