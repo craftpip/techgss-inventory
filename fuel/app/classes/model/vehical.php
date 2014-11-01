@@ -4,16 +4,16 @@ class Model_Vehical extends \Model {
 
     public static function get_vehical() {
         return \DB::select('vehical_id', 'vehical_name', 'vehical_desc', 'company_id','create_by_id','status', 'cdate')
-                        ->from('vehical')->execute()->as_array();
+                        ->from('vehical')->where('status','Active')->execute()->as_array();
     }
 
     public static function get_vehical_by_company($id) {
          return \DB::select('vehical_id', 'vehical_name', 'vehical_desc','create_by_id','status', 'cdate')
-                        ->from('vehical')->where('company_id', $id)->execute()->as_array();
+                        ->from('vehical')->where('status','Active')->where('company_id', $id)->execute()->as_array();
     }
     
     public static function get_vehical_by_id($id) {
-        return \DB::select( 'vehical_name', 'vehical_desc', 'company_id','create_by_id','status', 'cdate')
+        return \DB::select('vehical_id','vehical_name', 'vehical_desc', 'company_id','create_by_id','status', 'cdate')
                         ->from('vehical')->where('vehical_id', $id)->execute()->as_array();
     }
 
@@ -42,7 +42,7 @@ class Model_Vehical extends \Model {
     public static function delete_vehical($id) {
         $result = \DB::update('vehical')
                 ->value('status', 'Delete')
-                ->where('vehical_id', $result_data['vehical_id'])
+                ->where('vehical_id', $id)
                 ->execute();
         return $result;
     }

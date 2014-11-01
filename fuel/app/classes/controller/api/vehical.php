@@ -19,6 +19,10 @@ class Controller_Api_Vehical extends Controller {
     }
 
     public function action_index($id = null) {
+        return 'this is index';
+    }
+
+    public function action_i($id = null) {
         switch (Input::method()) {
             case 'GET':
                 if (isset($id)) {
@@ -28,25 +32,29 @@ class Controller_Api_Vehical extends Controller {
                 }
                 break;
             case 'DELETE':
-                return json_encode(Model_Vehical::delete_($id));
+                return json_encode(Model_Vehical::delete_vehical($id));
                 break;
             case 'POST':
                 $data = Input::post();
 
                 if (isset($data['vehical_id'])) {
                     return json_encode(Model_Vehical::update_vehical(array(
-                               'vehical_name' => $data['vehical_name'],
+                                'vehical_name' => $data['vehical_name'],
                                 'vehical_desc' => $data['vehical_desc'],
-                                'company_id' => $data['company_id'],
-                                'create_by_id' => $data['create_by_id'],
+                                'company_id' => '1',
+                                'create_by_id' => '2',
+//                                'company_id' => $data['company_id'],
+//                                'create_by_id' => $data['create_by_id'],
                                 'vehical_id' => $data['vehical_id']
                     )));
                 } else {
                     return json_encode(Model_Vehical::set_vehical(array(
                                 'vehical_name' => $data['vehical_name'],
                                 'vehical_desc' => $data['vehical_desc'],
-                                'company_id' => $data['company_id'],
-                                'create_by_id' => $data['create_by_id']
+                                'company_id' => '1',
+                                'create_by_id' => '2'
+//                                'company_id' => $data['company_id'],
+//                                'create_by_id' => $data['create_by_id']
                     )));
                     break;
                 }

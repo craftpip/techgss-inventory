@@ -4,28 +4,28 @@ define([
   'text!template/vehical/main.html',
   'text!template/vehical/vehical-list.html',
   'text!template/vehical/add-edit.html'
-], function(main,categorylist,categoryadd){
+], function(main,vehicallist,vehicaladd){
   var view = Backbone.View.extend({
     el:'#page-wrapper',
     events: {
       'click .vehical-btn-delete': 'delete',
       'submit #vehical-create-new-vehical': 'submit'
     },
-  	render: function(){
+  	render: function(edit){
   		this.$el.html(main);
   		this.rendervehicallist();
-  		this.rendervehicalAddEdit();
+  		this.rendervehicalAddEdit(edit);
   	},
     delete: function(e){
       var $this = $(e.currentTarget);
-      var id = $this.attr('data-category-id');
+      var id = $this.attr('data-vehical-id');
+      console.log(id);
        func.confirm({
                 title: 'Are you sure?',
-                content: 'this will delete the category, you cannot undo this',
+                content: 'this will delete the vehical, you cannot undo this',
                 success: function(){
                     func.delete({
-                        url: 'api/category/i/',
-                        category_id: id,
+                        url: 'api/vehical/i/'+id,
                         success: function(data){
                             if(data){
                                 noty({
@@ -44,7 +44,7 @@ define([
     },
     submit: function(e){
     $this = $(e.currentTarget);
-    func.submitForm('api/category/i/', $this.serializeArray(), {
+    func.submitForm('api/vehical/i/', $this.serializeArray(), {
       success: function(e) {
          if(e){
              noty({
@@ -64,8 +64,8 @@ define([
   		func.getData({
   			url: 'api/vehical/i',
   			success: function(data){
-  				 var datavar = _.template(categorylist);
-  				 var cmdata =  datavar({companies: JSON.parse(data)});
+  				 var datavar = _.template(vehicallist);
+  				 var cmdata =  datavar({vehical: JSON.parse(data)});
   				 $('#vehical-listvehical').html(cmdata);
   			},
   			error: function(){
@@ -73,10 +73,22 @@ define([
   			}
   		});
   	},
-  	rendervehicalAddEdit: function(){
-  		 var datavar = _.template(categoryadd);
-  		 var cmdata =  datavar({data: {}});
-  		$('#company-add-edit').html(cmdata);
+  	rendervehicalAddEdit: function(edit){
+      if(edit){
+        func.getData({
+                    url: 'api/vehical/i/'+edit,
+                    success: function(data){
+                        console.log(data);
+                         var template = _.template(vehicaladd);
+                           template = template({data: JSON.parse(data)});
+                         $('#vehical-add-edit').html(template);      
+                    }
+                });
+      }else{
+    		 var datavar = _.template(vehicaladd);
+    		 var cmdata =  datavar({data: {}});
+    		$('#vehical-add-edit').html(cmdata);
+      }
   	}
   });
   window.vehical = window.vehical || new view();

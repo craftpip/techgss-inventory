@@ -53,7 +53,7 @@ func.getData = function(obj) {
 };
 func.delete = function(obj) {
     $.ajax({
-        url: obj.url+obj.data,
+        url: obj.url,
         method: 'delete',
         success: function(e) {
             obj.success(e);

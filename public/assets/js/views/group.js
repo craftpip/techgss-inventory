@@ -44,7 +44,6 @@ define([
                 success: function() {
                     func.delete({
                         url: 'api/group/i/' + id,
-                        group_id: id,
                         success: function(data) {
                             if (data) {
                                 noty({

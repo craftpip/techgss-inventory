@@ -20,8 +20,7 @@ define([
                 content: 'this will deactivate the company, you cannot undo this',
                 success: function(){
                     func.delete({
-                        url: 'api/company/i/',
-                        data: id,
+                        url: 'api/company/i/'+id,
                         success: function(data){
                             if(data){
                                 noty({

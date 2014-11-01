@@ -7,7 +7,8 @@ define([
     'views/vehical',
     'views/category',
     'views/group',
-], function(home, user, company, vehical, category, group) {
+    'views/item',
+], function(home, user, company, vehical, category, group,item) {
     var app = {};
 
     app.Router = Backbone.Router.extend({
@@ -21,7 +22,8 @@ define([
             'group': 'group',
             'group/edit/:id': 'group',
             'vehical': 'vehical',
-            'vehical/edit/:id': 'vehical'
+            'vehical/edit/:id': 'vehical',
+            'item': 'item'
         },
         home: function() {
             home.render();
@@ -40,6 +42,9 @@ define([
         },
         category: function(id){
             category.render(id);
+        },
+        item: function(id){
+            item.render(id);
         }
     });
     return app;

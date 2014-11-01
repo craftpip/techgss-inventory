@@ -64,8 +64,7 @@ define([
                 content: 'Do you really want to delete this user.',
                 success: function(){
                     func.delete({
-                        url: 'api/user/i/',
-                        data: id, 
+                        url: 'api/user/i/'+id,
                         success: function(e){
                             if(e){
                                 noty({

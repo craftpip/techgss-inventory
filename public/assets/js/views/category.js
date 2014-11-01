@@ -19,8 +19,7 @@ define([
                 content: 'this will delete the category, you cannot undo this',
                 success: function(){
                     func.delete({
-                        url: 'api/category/i/',
-                        category_id: id,
+                        url: 'api/category/i/'+id,
                         success: function(data){
                             if(data){
                                 noty({
