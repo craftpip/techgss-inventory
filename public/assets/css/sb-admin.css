@@ -406,3 +406,13 @@ table.dataTable thead .sorting:after {
     top: 15px;
     z-index: 2;
 }
+
+/* Gaurish Rane Css */
+
+/* ------------------------------- */
+.ct-spaceing-sm{
+    height: 20px;
+}
+.ct-spaceing-esm{
+    height: 10px;
+}

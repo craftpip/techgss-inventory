@@ -3,7 +3,7 @@
 define([
   'text!template/item/main.html',
   'text!template/item/addedit.html'
-], function(main,vehicaladd){
+], function(main,itemadd){
   var view = Backbone.View.extend({
     el:'#page-wrapper',
     events: {
@@ -19,9 +19,34 @@ define([
         if(id){
 
         }else{
-           var datavar = _.template(vehicaladd);
-            var cmdata =  datavar({data: {}});
-           $('#vehical-addedit').html(cmdata);
+            var category,vehical;
+             func.getData({
+                url: 'api/category/i',
+                success: function (data) {
+                    category = data;
+                    console.log(data);
+                }
+            });
+            func.getData({
+                url: 'api/vehical/i',
+                success: function (data) {
+                    vehical = data;
+                    console.log(data);
+                }
+            });
+            func.getData({
+                url: 'api/dom/i',
+                success: function (data) {
+                    vehical = data;
+                    console.log(data);
+                }
+            });
+            
+            var datavar = _.template(itemadd);
+            
+            var cmdata =  datavar({data: {},
+                                   category:  category});
+            $('#vehical-addedit').html(cmdata);
         }
    }
   });

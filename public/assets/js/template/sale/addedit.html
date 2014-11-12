@@ -1,4 +1,4 @@
-<% maindata = data[0]; %>
+<% data = data[0]; %>
 
 <%= data ? '<a href="#/vehical" class="btn btn-default"><i class="fa fa-arrow-left fa-fw"></i> back</a><br><br>' : '' %>
 <div class="panel panel-<%= data? 'danger' : 'primary'  %>">
@@ -15,22 +15,20 @@
         <form class="form-inline" id="vehical-create-new-vehical">
             <div class="form-group">  
                 <div class="input-group">
-                    <div class="input-group-addon">Category Code</div>
-                    <select class="form-control input-sm" id="item-category-code">
-                   
-                    </select>
+                    <div class="input-group-addon">Doc Code</div>
+                    <select class="form-control input-sm"><option>11322</option><option>11322</option></select>
                 </div>
             </div>
             <div class="form-group col-md-offset-1">
                 <div class="input-group">
                     <div class="input-group-addon">Vehicale Code</div>
-                    <select class="form-control input-sm" id="item-vehical-code"><option>11322</option><option>11322</option></select>
+                    <select class="form-control input-sm"><option>11322</option><option>11322</option></select>
                 </div>
             </div>
             <div class="form-group col-md-offset-1">
                 <div class="input-group">
                     <div class="input-group-addon">Group Code</div>
-                    <select class="form-control input-sm" id="item-group-code"><option>11322</option><option>11322</option></select>
+                    <select class="form-control input-sm"><option>11322</option><option>11322</option></select>
                 </div>
             </div>
             <div class="form-group col-md-offset-1">

@@ -1,0 +1,160 @@
+<% data = data[0]; %>
+
+<%= data ? '<a href="#/sale" class="btn btn-default"><i class="fa fa-arrow-left fa-fw"></i> back</a><br><br>' : '' %>
+<div class="panel panel-<%= data? 'danger' : 'primary'  %>">
+    <div class="panel-heading">
+        <span class="">
+            <% if(data){ %>
+            Edit Item: <%= data['vehical_name'] %>
+            <% }else{ %>
+            Add new Item
+            <% } %>
+        </span>
+    </div>
+    <div class="panel-body">
+        <form class="form-inline" id="vehical-create-new-vehical">
+            <div class="form-group">  
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">S.O.Ref No</div>
+                        <input class="form-control col-sm-4" name="vehical_name" placeholder="Username" value="<%= data ? data['vehical_name'] : '' %>">
+                    </div>
+                </div>
+                <div class="form-group col-md-offset-1">
+                    <div class="input-group">
+                        <div class="input-group-addon">Doc Code</div>
+                        <input class="form-control col-sm-4" name="vehical_name" placeholder="Username" value="<%= data ? data['vehical_name'] : '' %>">
+                    </div>
+                </div>
+                <div class="form-group col-md-offset-1">
+                    <div class="input-group">
+                        <div class="input-group-addon">Doc Name</div>
+                        <select class="form-control input-sm"><option>11322</option><option>11322</option></select>
+                    </div>
+                </div>
+                <div class="clearfix ct-spaceing-sm"></div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">PO No</div>
+                        <input class="form-control col-3" name="vehical_name" placeholder="Username" value="<%= data ? data['vehical_name'] : '' %>">
+                    </div>
+                </div>
+                <div class="form-group col-md-offset-1">
+                    <div class="input-group">
+                        <div class="input-group-addon">PO Data</div>
+                        <input class="form-control" name="vehical_name" placeholder="Username" value="<%= data ? data['vehical_name'] : '' %>">
+                    </div>
+                </div>
+                <div class="form-group col-md-offset-1">
+                    <div class="input-group">
+                        <div class="input-group-addon">Due Date</div>
+                        <input class="form-control col-sm-3" name="vehical_name" placeholder="Username" value="<%= data ? data['vehical_name'] : '' %>">
+                    </div>
+                </div>
+                <div class="clearfix ct-spaceing-sm"></div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">Supply Code</div>
+                        <input class="form-control " name="vehical_name" placeholder="Username" value="<%= data ? data['vehical_name'] : '' %>">
+                    </div>
+                </div>
+                <div class="form-group col-md-offset-1">
+                    <div class="input-group">
+                        <div class="input-group-addon">Supply Name</div>
+                        <input class="form-control col-sm-4" name="vehical_name" placeholder="Username" value="<%= data ? data['vehical_name'] : '' %>">
+                    </div>
+                </div>
+                <div class="clearfix ct-spaceing-sm"></div>
+                <div class="form-group ">
+                    <div class="input-group">
+                        <div class="input-group-addon">Transport</div>
+                        <input class="form-control col-sm-4" name="vehical_name" placeholder="Username" value="<%= data ? data['vehical_name'] : '' %>">
+                        <!-- <select class="form-control input-sm"><option>11322</option><option>11322</option></select> -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">Packing Mode</div>
+                        <input class="form-control col-sm-4" name="vehical_name" placeholder="Username" value="<%= data ? data['vehical_name'] : '' %>">
+                    </div>
+                </div>
+                <div class="clearfix ct-spaceing-sm"></div>
+                 <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">Currency</div>
+                       <select class="form-control input-sm"><option>11322</option><option>11322</option></select> 
+                    </div>
+                </div>
+                <div class="form-group col-sm-2">
+                    <div class="input-group col-sm-2">
+                        <div class="input-group-addon">Exch rate</div>
+                        <input class="form-control col-sm-4" name="vehical_name" placeholder="Username" value="<%= data ? data['vehical_name'] : '' %>">
+                    </div>
+                </div>
+                <div class="clearfix ct-spaceing-esm"></div>
+                <hr >                
+                Customer Code Creation <div class="clearfix"></div>
+                <table class="table">
+                    <tr><th>Sr no</th><th>Bom CD</th><th>Item code</th><th>Item Name</th><th>Quantity</th><th>Qty Unit</th><th>Rate</th><th>Amount</th><th>Remark</th></tr>
+                    <tr><td>1</td><td>adf</td><td>asdfa</td><td>asdfa</td><td>asdfa</td><td>asdfa</td><td>asdfa</td><td>asdfa</td><td>asdfa</td><td><a>edit</a>&nbsp;<a>delete</a></td></tr>
+                    <tr><td>&nbsp;</td><td>
+                            <div class="input-group">
+                                <input class="form-control col-sm-4" name="vehical_name" placeholder="Bom CD" value="<%= data ? data['vehical_name'] : '' %>">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                <input class="form-control col-sm-4" name="vehical_name" placeholder="Item code" value="<%= data ? data['vehical_name'] : '' %>">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                <input class="form-control col-sm-4" name="vehical_name" placeholder="Item Name" value="<%= data ? data['vehical_name'] : '' %>">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                <input class="form-control col-sm-4" name="vehical_name" placeholder="Quantity" value="<%= data ? data['vehical_name'] : '' %>">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                <input class="form-control col-sm-4" name="vehical_name" placeholder="Qty Unit" value="<%= data ? data['vehical_name'] : '' %>">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                <input class="form-control col-sm-4" name="vehical_name" placeholder="Rate" value="<%= data ? data['vehical_name'] : '' %>">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                <input class="form-control col-sm-4" name="vehical_name" placeholder="Amount" value="<%= data ? data['vehical_name'] : '' %>">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                <input class="form-control col-sm-4" name="vehical_name" placeholder="Remark" value="<%= data ? data['vehical_name'] : '' %>">
+                            </div>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary" type="">Add</button>
+                        </td></tr>
+                </table>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">Total amount</div>
+                        <input type="text" class="form-control col-sm-4" name="vehical_name" placeholder="1000" value="<%= data ? data['vehical_name'] : '' %>">
+                    </div>
+                </div>
+                <div class="clearfix ct-spaceing-esm"></div>
+                <hr >              
+                <% if(data){ %>
+                <input type="hidden" name="vehical_id" value="<%= data['vehical_id'] %>">
+                <% } %>
+                <div class="clearfix ct-spaceing-sm"></div>
+                <button class="btn btn-primary" type="submit"><%= data ? 'Edit': 'Create' %></button>
+
+        </form>
+    </div>
+</div>
